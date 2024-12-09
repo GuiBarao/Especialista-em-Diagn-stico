@@ -139,7 +139,6 @@ inicio :-
         pergunta(dorDeGarganta,  'Dor de garganta? -> '),
         pergunta(congestaoNasal, 'Congestao nasal? -> '),
         pergunta(sensibilidadeLuz,  'Sensibilidade a luz? -> '),
-        pergunta(fraqueza, 'Fraqueza? -> '),
 
         /*Lista de sintomas registrados pelo usuário.*/
         findall(Sintoma, sintoma_usuario(Sintoma), Lista),
