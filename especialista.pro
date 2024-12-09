@@ -55,22 +55,22 @@ quant_membros([], _, 0).
 quant_membros([Head | Tail], Lista2, Cont) :-   quant_membros(Tail, Lista2, ContTail), 
                                                 (member(Head, Lista2) -> Cont is ContTail + 1 ; Cont = ContTail).
 
-%Se o usuário possui 90% dos sintomas, o sistema considera a doença como uma possível diagnóstico.
+%Se o usuário possui 70% dos sintomas, o sistema considera a doença como uma possível diagnóstico.
 
 diagnostico(Lista, covid) :-    lista_sintomas(covid, Stm_Covid), %Stm_Covid recebe os sintomas de Covid.
-                                percentual(Stm_Covid, 90, Min_sintomas), %Min_sintomas representa a quantidade minima de sintomas para a doença ser considerada.
+                                percentual(Stm_Covid, 70, Min_sintomas), %Min_sintomas representa a quantidade minima de sintomas para a doença ser considerada.
                                 quant_membros(Lista, Stm_Covid, Nsintomas), %Calcula a quantidade de sintomas do usuários que também são sintomas de covid.
                                 Nsintomas >= Min_sintomas.
 
 
 diagnostico(Lista, dengue) :-   lista_sintomas(dengue, Stm_Dengue),
-                                percentual(Stm_Dengue, 90, Min_sintomas),
+                                percentual(Stm_Dengue, 70, Min_sintomas),
                                 quant_membros(Lista, Stm_Dengue, Nsintomas),
                                 Nsintomas >= Min_sintomas.
 
 
 diagnostico(Lista, influenza) :-        lista_sintomas(influenza, Stm_Influenza),
-                                        percentual(Stm_Influenza, 90, Min_sintomas),
+                                        percentual(Stm_Influenza, 70, Min_sintomas),
                                         quant_membros(Lista, Stm_Influenza, Nsintomas),
                                         Nsintomas >= Min_sintomas.
 
